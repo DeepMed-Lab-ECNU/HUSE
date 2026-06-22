@@ -1,0 +1,49 @@
+# ===================== HUSE training config (Orion-CRC) =====================
+# Any value here can be overridden on the command line, e.g.
+#   torchrun ... main.py --config configs/orion.yaml --batch_size 8
+
+# ---- model ----
+model: JiT-B/16
+img_size: 256
+num_classes: 16
+in_channels: 6
+
+# ---- Hi-MoE prototype init (CLIP ViT-B/32, 1x512 anchor features saved offline) ----
+clip_dim: 512
+clip_anchor_dir: PATH/TO/CLIP_ANCHOR_FEATURES   # dir with anchor_nuclear.pt / anchor_cytoplasm.pt / anchor_background.pt
+init_moe_prototypes: false
+
+# ---- data (placeholders, fill in your local absolute paths) ----
+data_root_train: PATH/TO/Orion-CRC/train
+data_root_val: PATH/TO/Orion-CRC/val
+
+# ---- optimization ----
+batch_size: 16
+epochs: 400
+warmup_epochs: 5
+lr: 1.0e-4
+min_lr: 1.0e-5
+weight_decay: 0.0
+# LR schedule: warmup for `warmup_epochs`, then hold `lr` until `decay_start_epoch`,
+# then cosine-decay from `lr` down to `min_lr` over [decay_start_epoch, epochs].
+# e.g. with epochs=400, decay_start_epoch=250: hold lr until epoch 250, then decay to min_lr by 400.
+decay_start_epoch: 250
+ema_decay: 0.999
+
+# ---- flow-matching / sampling ----
+P_mean: -0.8
+P_std: 0.8
+noise_scale: 2.0
+num_sampling_steps: 50
+
+# ---- io / logging ----
+output_dir: ./output/orion_ab3
+save_last_freq: 50
+eval_freq: 5
+
+# ---- runtime ----
+gpus: "0"            # GPU ids, comma-separated. single card: "0"  |  multi card: "0,1,2,3"
+master_port: 29474
+num_workers: 8
+pin_mem: true
+seed: 0
