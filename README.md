@@ -8,8 +8,8 @@ HUSE is a universal "one-to-many" model that generates multiple virtual IHC biom
 
 ## 2. News
 
-- **2026.06.18** — Our paper was accepted by **ECCV 2026**! 🎉
 - **2026.06.23** — Code repository created; training and evaluation code released.
+- **2026.06.18** — Our paper was accepted by **ECCV 2026**! 🎉
 
 ## 3. Usage
 
