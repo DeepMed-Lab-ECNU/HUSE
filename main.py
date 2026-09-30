@@ -58,7 +58,7 @@ def get_args_parser():
     parser.add_argument('--num_classes', default=16, type=int)
     parser.add_argument('--in_channels', default=6, type=int)
     parser.add_argument('--clip_dim', default=512, type=int)
-    parser.add_argument('--clip_anchor_dir', default='PATH/TO/CLIP_ANCHOR_FEATURES', type=str)
+    parser.add_argument('--clip_anchor_dir', default='weights/expert_anchors', type=str)
     parser.add_argument('--init_moe_prototypes', action='store_true',
                         help='Initialize Hi-MoE prototypes from CLIP anchor features.')
     # data

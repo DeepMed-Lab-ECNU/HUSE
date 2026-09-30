@@ -10,8 +10,8 @@ in_channels: 6
 
 # ---- Hi-MoE prototype init (CLIP ViT-B/32, 1x512 anchor features saved offline) ----
 clip_dim: 512
-clip_anchor_dir: PATH/TO/CLIP_ANCHOR_FEATURES   # dir with anchor_nuclear.pt / anchor_cytoplasm.pt / anchor_background.pt
-init_moe_prototypes: false
+clip_anchor_dir: weights/expert_anchors
+init_moe_prototypes: true
 
 # ---- data (placeholders, fill in your local absolute paths) ----
 data_root_train: PATH/TO/Orion-CRC/train

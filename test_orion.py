@@ -115,7 +115,7 @@ def main():
     parser.add_argument("--batch_size", type=int, default=8)
     parser.add_argument("--device", type=str, default="cuda")
     parser.add_argument("--clip_dim", type=int, default=512)
-    parser.add_argument("--clip_anchor_dir", type=str, default="PATH/TO/CLIP_ANCHOR_FEATURES")
+    parser.add_argument("--clip_anchor_dir", type=str, default="weights/expert_anchors")
     args = parser.parse_args()
 
     device = torch.device(args.device)

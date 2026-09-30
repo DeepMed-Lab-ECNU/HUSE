@@ -243,7 +243,7 @@ class JiT(nn.Module):
         in_context_len=32,
         in_context_start=8,
         clip_dim=512,
-        clip_anchor_dir="PATH/TO/CLIP_ANCHOR_FEATURES",
+        clip_anchor_dir="weights/expert_anchors",
     ):
         super().__init__()
         self.in_channels = in_channels
